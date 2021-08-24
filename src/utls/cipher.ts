@@ -24,8 +24,8 @@ export class AesEncryption implements Encryption{
   
   constructor (opt: Partial<EncryptionOption> = {}) {
     const { key, iv } = opt;
-    this.key = parse(key || '_11111000001111@')
-    this.iv = parse(iv || '@11111000001111_')
+    this.key = parse(key || '1234567890abcdef')
+    this.iv = parse(iv || '1234567890abcdef')
   }
   
   private get getOptions (): CryptoJS.CipherOption {
