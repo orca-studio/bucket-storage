@@ -1,46 +1,46 @@
 {
-  "name": "bucket-storage",
-  "version": "0.1.0",
-  "main": "lib/index.js",
-  "license": "MIT",
-  "files": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/orca-studio/bucket-storage.git"
-  },
-  "homepage": "https://github.com/orca-studio/bucket-storage#readme",
-  "bugs": {
-    "url": "https://github.com/orca-studio/bucket-storage/issues",
-    "email": "yanzhangshuai@126.com"
-  },
-  "keywords": [
-    "web",
-    "storage",
-    "sessionStorage",
-    "localstorage",
-    "bucket-storage"
-  ],
-  "scripts": {
-    "build": "tsc -p .",
-    "test": "jest --passWithNoTests --runInBand --watch"
-  },
-  "devDependencies": {
-    "@types/crypto-js": "^4.0.2",
-    "@types/expect-puppeteer": "^4.4.6",
-    "@types/jest": "^27.0.1",
-    "@types/jest-environment-puppeteer": "^4.4.1",
-    "@types/puppeteer": "^5.4.4",
-    "jest": "^27.0.6",
-    "jest-localstorage-mock": "^2.4.16",
-    "jest-puppeteer": "^5.0.4",
-    "puppeteer": "^10.2.0",
-    "ts-jest": "^27.0.5",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.3.5"
-  },
-  "dependencies": {
-    "crypto-js": "^4.1.1"
-  }
+	"name": "bucket-storage",
+	"version": "0.1.2",
+	"main": "lib/index.js",
+	"license": "MIT",
+	"files": [
+		"lib"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/orca-studio/bucket-storage.git"
+	},
+	"homepage": "https://github.com/orca-studio/bucket-storage#readme",
+	"bugs": {
+		"url": "https://github.com/orca-studio/bucket-storage/issues",
+		"email": "yanzhangshuai@126.com"
+	},
+	"keywords": [
+		"web",
+		"storage",
+		"sessionStorage",
+		"localstorage",
+		"bucket-storage"
+	],
+	"scripts": {
+		"build": "tsc -p .",
+		"test": "jest --passWithNoTests --runInBand --watch"
+	},
+	"devDependencies": {
+		"@types/crypto-js": "^4.0.2",
+		"@types/expect-puppeteer": "^4.4.6",
+		"@types/jest": "^27.0.1",
+		"@types/jest-environment-puppeteer": "^4.4.1",
+		"@types/puppeteer": "^5.4.4",
+		"jest": "^27.0.6",
+		"jest-localstorage-mock": "^2.4.16",
+		"jest-puppeteer": "^5.0.4",
+		"puppeteer": "^10.2.0",
+		"ts-jest": "^27.0.5",
+		"ts-node": "^10.2.1",
+		"typescript": "^4.3.5"
+	},
+	"dependencies": {
+		"crypto-js": "^4.1.1"
+	}
 }

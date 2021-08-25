@@ -1,36 +1,21 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "lib": [
-      "ESNext",
-      "es6",
-      "es2015",
-      "dom"
-    ],
-    "declaration": true,
-    "outDir": "lib",
-    "rootDir": "src",
-    "strict": true,
-    "esModuleInterop": true,
-    "downlevelIteration": true,
-    "typeRoots": [
-      "./node_modules/@types/",
-      "./types"
-    ],
-    "types": [
-      "jest"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    }
-  },
-  "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ]
+	"compilerOptions": {
+		"target": "es5",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"lib": ["ESNext", "es6", "es2015", "dom"],
+		"declaration": true,
+		"outDir": "lib",
+		"rootDir": "./",
+		"strict": true,
+		"esModuleInterop": true,
+		"downlevelIteration": true,
+		"typeRoots": ["./node_modules/@types/", "./types"],
+		"types": ["jest"],
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		}
+	},
+	"include": ["src/**/*.ts", "test/**/*.ts"]
 }

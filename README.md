@@ -46,3 +46,54 @@ You can pass configuration options to `BucketStorage` constructor.
 | expire        | {Number, Date, null}             | null                                             | Set ths default data expiration time . null is setting does not expire, Date type express absolute expiration time; Number type express relative expiration time |
 | storageType   | { 'local','session' , 'memory' } | 'session'                                        | Default storage type. Local value is using localStorage; Session value is using sessionStorage; Memory value is using memory object                              |
 | encryptOption | Object                           | { key:'1234567890abcdef',iv:'1234567890abcdef' } | Setting data secret key. key and iv need sixteen strings;                                                                                                        |
+
+
+#### override
+support override config at set().
+
+```javascript
+const value = { data: 'data' };
+
+// set value
+storage.set('bucket-storage_test-default', data,{
+  encrypt: false,
+  bucketName:'__',
+  expire: 3*1000,
+  storageType:'local'
+});
+
+//  get value
+storage.get('bucket-storage_test-default',{
+  bucketName:'__',
+  storageType:'local'
+});
+```
+
+#### watch
+support add data changed  using watch(). when data changed trigger callback
+
+```javascript
+const value = { data: 'data' };
+
+// set value
+storage.set('bucket-storage_test-default', data);
+
+
+const callback = (newValue,oldValue) => {
+  //
+};
+// add watch
+storage.watch('bucket-storage_test-default',callback, {
+  storageType:null,
+  bucketName:null
+})
+storage.set('bucket-storage_test-default', { data:'newData' });
+
+//  remove watch
+storage.unWatch('bucket-storage_test-default',callback, {
+  storageType:null,
+  bucketName:null
+})
+
+
+```
