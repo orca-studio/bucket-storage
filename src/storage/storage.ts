@@ -1,5 +1,6 @@
-import { memoryStorage } from '@/storage/memory';
+import { StorageType } from '@/types/index.d';
 import { isNullOrUnDef } from '@/utls/is';
+import { memoryStorage } from '@/storage/memory';
 
 export type Storage = {
   
@@ -18,17 +19,10 @@ export type Storage = {
   [name: string]: any;
 }
 
-export enum StorageType {
-  memory = 'memory',
-  session = 'session',
-  local = 'local',
-}
-
 export const storages: Record<StorageType, Storage> = {
-  [StorageType.local]: window.localStorage,
-  [StorageType.session]: window.sessionStorage,
-  [StorageType.memory]: memoryStorage,
-  
+  local: window.localStorage,
+  session: window.sessionStorage,
+  memory: memoryStorage,
 };
 
 /**

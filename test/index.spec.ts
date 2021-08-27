@@ -1,4 +1,4 @@
-import { BucketStorage, StorageType } from '@/index';
+import BucketStorage from "@/index";
 
 function timeout(time: number) {
   return new Promise((resolve) => {
@@ -41,7 +41,7 @@ test('bucket-storage custom', async () => {
   
   const storage = new BucketStorage({
     bucketName: '__',
-    storageType: StorageType.local,
+    storageType: 'local',
     expire: 1000,
     encryptOption: {
       iv: '1111111111111111',
@@ -59,7 +59,7 @@ test('bucket-storage custom', async () => {
   
   storage.set('bucket-storage_custom-function',data,{
     bucketName: '--',
-    storageType: StorageType.session,
+    storageType: 'session',
     expire: null,
   });
   
@@ -69,7 +69,7 @@ test('bucket-storage custom', async () => {
   
   expect(storage.get('bucket-storage_custom-function',{
     bucketName: '--',
-    storageType: StorageType.session,
+    storageType: 'session',
   })).not.toBeNull();
   
 });

@@ -1,10 +1,10 @@
 import { logError } from '@/utls/log';
 import { isNullOrUnDef } from '@/utls/is';
+import { storages } from '@/storage/storage';
 import { BUCKET_STORAGE_KEY } from '@/utls/const';
-import { BucketName, StorageKey } from '@/typing';
-import { storages, StorageType } from '@/storage/storage';
-import { decodeByBase64, encryptByBase64 } from '@/utls/cipher';
 import { BucketStorageBaseManager } from '@/manager/base';
+import { BucketName, StorageKey, StorageType } from '@/types/index.d';
+import { decodeByBase64, encryptByBase64 } from '@/utls/cipher';
 
 type KeyBucketManageType = Array<StorageKey>;
 

@@ -1,28 +1,13 @@
+import { BucketName, BucketStorageOption, Encrypt, Expire, StorageKey, StorageType, WatchCallback } from '@/types/index.d';
 import { logError } from '@/utls/log';
 import { BucketStorageKeyManager } from '@/manager/key';
 import { BucketStorageWatchManager } from '@/manager/watch';
-import { BucketName, Encrypt, Expire, StorageKey, WatchCallback } from '@/typing';
 import { DEFAULT_BUCKET_NAME, DEFAULT_ENCRYPTION_KEY, ENCRYPT_TEXT_SYMBOL } from '@/utls/const';
-import { AesEncryption, Encryption, EncryptionOption } from '@/utls/cipher';
-import { isStorageType, Storage, storages, StorageType } from '@/storage/storage';
+import { AesEncryption, Encryption } from '@/utls/cipher';
+import { isStorageType, Storage, storages } from '@/storage/storage';
 import { isDate, isDef, isNull, isNullOrUnDef, isObject, isValueType } from '@/utls/is';
 
-/**
- * 过期时间类型，
- * number 滑动过期时间  过期时间为 （当前时间 + expire值）
- * Date   绝对过期时间  过期时间为 （expire值）
- * null   不具有过期时间
- */
-
-interface BucketStorageOption {
-  encrypt?: Encrypt;
-  bucketName?: BucketName;
-  expire?: Expire;
-  storageType?: StorageType;
-  encryptOption?: EncryptionOption;
-}
-
-export class BucketStorage {
+export default class BucketStorage {
   /**
    * 默认是否进行加密
    * @private
@@ -45,7 +30,7 @@ export class BucketStorage {
    *  默认使用的storage类型
    * @private
    */
-  private readonly storageType: StorageType = StorageType.session;
+  private readonly storageType: StorageType = 'session';
   
   private readonly encryption: Encryption;
   
@@ -60,7 +45,7 @@ export class BucketStorage {
     //  1.当前值不为空并且为基础类型，使用值的字符串类型  防止 JS 传入 非字符串类型
     //  2.默认名称
     this.bucketName = !isNullOrUnDef(bucketName) && isValueType(bucketName)
-      ? bucketName.toString()
+      ? bucketName?.toString()
       : DEFAULT_BUCKET_NAME;
     
     //  默认超出时间
@@ -73,7 +58,7 @@ export class BucketStorage {
     //  默认storage类型
     this.storageType = !isNullOrUnDef(storageType) && isStorageType(storageType)
       ? storageType
-      : StorageType.session;
+      : 'session';
     
     //  默认是否加密
     //  防止 JS 传入其它类型， 当传入  'false' 或 false 代表 false 否则默认 true
@@ -237,10 +222,11 @@ export class BucketStorage {
    * @param callback
    * @param options
    */
-  watch(key: StorageKey, callback: WatchCallback, options?: Partial<{
-    storageType: StorageType
-    bucketName: BucketName;
-  }>) {
+  watch<V = any, OV = V>(
+    key: StorageKey, callback: WatchCallback<V, OV>, options?: Partial<{
+      storageType: StorageType
+      bucketName: BucketName;
+    }>) {
     this.watchManager.add(key, callback, options);
   }
   
@@ -308,10 +294,4 @@ export class BucketStorage {
   }
   
 }
-
-export {
-  Expire,
-  BucketStorageOption,
-  StorageType,
-};
 

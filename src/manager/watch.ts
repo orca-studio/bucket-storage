@@ -1,7 +1,6 @@
 import { isNull } from '@/utls/is';
-import { StorageType } from '@/storage/storage';
 import { BucketStorageBaseManager } from '@/manager/base';
-import { BucketName, StorageKey, WatchCallback } from '@/typing';
+import { BucketName, StorageKey, StorageType, WatchCallback } from '@/types/index.d';
 
 type WatchManageType = Record<StorageKey, Array<WatchCallback>>;
 

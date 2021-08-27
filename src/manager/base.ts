@@ -1,6 +1,6 @@
-import { BucketName } from '@/typing';
+import { BucketName, StorageType } from '@/types/index.d';
 import { isNullOrUnDef, isValueType } from '@/utls/is';
-import { isStorageType, Storage, storages, StorageType } from '@/storage/storage';
+import { isStorageType, Storage, storages } from '@/storage/storage';
 
 /**
  * storage  类型

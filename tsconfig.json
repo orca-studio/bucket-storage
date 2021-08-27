@@ -5,12 +5,11 @@
 		"moduleResolution": "node",
 		"lib": ["ESNext", "es6", "es2015", "dom"],
 		"declaration": true,
-		"outDir": "lib",
 		"rootDir": "./",
 		"strict": true,
 		"esModuleInterop": true,
 		"downlevelIteration": true,
-		"typeRoots": ["./node_modules/@types/", "./types"],
+		"typeRoots": ["./node_modules/@types/"],
 		"types": ["jest"],
 		"baseUrl": ".",
 		"paths": {

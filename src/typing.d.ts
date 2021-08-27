@@ -43,28 +43,10 @@ declare module 'crypto-js' {
   }
 }
 
-export declare type ValueType =
+export declare  type ValueType =
   string
   | number
   | boolean
   | undefined
   | null
   | Symbol;
-
-export declare type Expire = number | Date | null;
-
-/**
- * 存储桶类型
- */
-export declare type BucketName = string;
-
-
-export  declare  type Encrypt = boolean | string
-
-/**
- * 存储key类型
- */
-export declare type StorageKey = string
-
-export declare type WatchCallback = <V = any, OV = any>(
-  value: V, oldValue: OV) => void;

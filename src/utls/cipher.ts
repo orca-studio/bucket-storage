@@ -1,16 +1,13 @@
-import { encrypt, decrypt } from 'crypto-js/aes';
-import { parse } from 'crypto-js/enc-utf8';
 import ECB from 'crypto-js/mode-ecb';
 import UTF8 from 'crypto-js/enc-utf8';
-import Base64 from 'crypto-js/enc-base64';
 import { WordArray } from 'crypto-js';
 import Pkcs7 from 'crypto-js/pad-pkcs7';
+import Base64 from 'crypto-js/enc-base64';
+import { parse } from 'crypto-js/enc-utf8';
+import { encrypt, decrypt } from 'crypto-js/aes';
+import { EncryptionOption } from '@/types';
+import { DEFAULT_ENCRYPTION_KEY } from './const';
 
-
-export interface EncryptionOption {
-  key: string;
-  iv: string;
-}
 
 
 export interface Encryption{
@@ -24,8 +21,8 @@ export class AesEncryption implements Encryption{
   
   constructor (opt: Partial<EncryptionOption> = {}) {
     const { key, iv } = opt;
-    this.key = parse(key || '1234567890abcdef')
-    this.iv = parse(iv || '1234567890abcdef')
+    this.key = parse(key || DEFAULT_ENCRYPTION_KEY)
+    this.iv = parse(iv || DEFAULT_ENCRYPTION_KEY)
   }
   
   private get getOptions (): CryptoJS.CipherOption {
