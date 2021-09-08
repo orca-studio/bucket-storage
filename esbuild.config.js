@@ -16,6 +16,7 @@ const options = {
   format: 'esm',
   platform: 'browser',
   sourcemap: false,
+  external:['crypto-js'],
   target: [
     'chrome58',
     'es6',
@@ -32,7 +33,7 @@ Promise.all([
   build({
     ...options,
     outExtension: {
-      '.js': '.mjs',
+      '.js': '.min.js',
     },
     minify: true,
   }), build({
