@@ -23,7 +23,7 @@ declare class BucketStorage {
     storageType: StorageType
   }>): void
   
-  watch(key: StorageKey, callback: WatchCallback, options?: Partial<{
+  watch<V = any, OV = V>(key: StorageKey, callback: WatchCallback<V, OV>, options?: Partial<{
     storageType: StorageType
     bucketName: BucketName;
   }>): void

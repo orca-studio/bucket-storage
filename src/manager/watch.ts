@@ -22,7 +22,7 @@ export class BucketStorageWatchManager extends BucketStorageBaseManager<WatchMan
       false;
   }
   
-  add(key: StorageKey, value: WatchCallback, options?: Partial<{
+  add<V = any, OV = V>(key: StorageKey, value: WatchCallback<V, OV>, options?: Partial<{
     storageType?: StorageType
     bucketName?: BucketName
   }>) {
